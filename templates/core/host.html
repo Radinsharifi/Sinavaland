@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1a2744" />
     <title>سینوا | سوئیس مازندران</title>
+    <link rel="manifest" href="/host/manifest.json" />
     <meta name="description" content="پلتفرم جامع صنعت ماشین‌آلات - اتصال تولیدکنندگان، تأمین‌کنندگان و خریداران" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
@@ -1473,7 +1475,9 @@
                                 <path d="M15 18l-6-6 6-6" />
                             </svg>
                         </a>
+                        <button id="hostInstallBtn" class="btn-outline-light" type="button">نصب نسخه مخصوص این صفحه</button>
                     </div>
+                    <p style="margin-top: 16px; color: rgba(250, 250, 250, .8); font-size: 0.95rem;">نسخه مخصوص این صفحه برای نصب جداگانه و سریع‌تر در دستگاه شما آماده است.</p>
                 </div>
             </section>
 
@@ -1904,6 +1908,36 @@
                 eyeOff.classList.remove('hidden');
                 eyeOn.classList.add('hidden');
             }
+        }
+
+        // ===== Host page install experience =====
+        var deferredPrompt;
+        var installButton = document.getElementById('hostInstallBtn');
+
+        window.addEventListener('beforeinstallprompt', function (event) {
+            event.preventDefault();
+            deferredPrompt = event;
+            if (installButton) {
+                installButton.style.display = 'inline-flex';
+            }
+        });
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/host/sw.js').catch(function () {
+                    console.log('Host page service worker registration failed');
+                });
+            });
+        }
+
+        if (installButton) {
+            installButton.addEventListener('click', function () {
+                if (!deferredPrompt) {
+                    alert('برای نصب این نسخه، از مرورگر خود گزینه نصب/Install را انتخاب کنید.');
+                    return;
+                }
+                deferredPrompt.prompt();
+            });
         }
 
         // ===== Supply Demand Submit =====
