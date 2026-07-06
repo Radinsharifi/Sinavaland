@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -1421,7 +1422,7 @@
         <div class="container">
             <a href="#/" class="navbar-brand" onclick="navigate('/')">
                 <div class="logo-icon gradient-industrial">
-                    <img alt="logo" src="assets/img/slogo.png">
+                    <img alt="logo" src="{% static 'slogo.png' %}">
                 </div>
                 <span>سینوالند</span>
             </a>
@@ -1461,7 +1462,7 @@
             <!-- Hero -->
             <section class="hero">
                 <div class="hero-bg">
-                    <img src="assets/img/sinavaland.jpg" alt="صنعت ماشین‌آلات" />
+                    <img src="{% static 'sinavaland.jpg' %}" alt="صنعت ماشین‌آلات" />
                     <div class="overlay gradient-industrial"></div>
                 </div>
                 <div class="container hero-content animate-fade-in-up">
@@ -1489,7 +1490,7 @@
                         <p>با سینوالند به بهترین میزبان منطقه تبدیل شوید.</p>
                     </div>
                     <div class="video-container industrial-shadow">
-                        <img src="assets/img/sinavaland.jpg" alt="معرفی پلتفرم ماشین‌یار" />
+                        <img src="{% static 'sinavaland.jpg' %}" alt="معرفی پلتفرم ماشین‌یار" />
                         <div class="video-overlay"></div>
                         <div class="play-btn gradient-amber">
                             <svg width="36" height="36" viewBox="0 0 24 24" fill="#2d3548" stroke="none">
@@ -1532,7 +1533,7 @@
             <section class="img-text-section" style="background:var(--bg)" id="home">
                 <div class="container">
                     <div class="img-text-grid">
-                        <div class="img-block industrial-shadow"><img src="assets/img/homemain.jpg"
+                        <div class="img-block industrial-shadow"><img src="{% static 'homemain.jpg' %}"
                                 alt="ماشین‌کاری CNC" />
                         </div>
                         <div class="text-block">
@@ -1587,7 +1588,7 @@
             <section class="img-text-section" style="background:var(--muted)" id="tour">
                 <div class="container">
                     <div class="img-text-grid">
-                        <div class="img-block industrial-shadow" style="order:1"><img src="assets/img/prmain.jpg"
+                        <div class="img-block industrial-shadow" style="order:1"><img src="{% static 'prmain.jpg' %}"
                                 alt="تیم مهندسین" /></div>
                         <div class="text-block" style="order:2">
                             <div class="icon-box gradient-industrial">
@@ -1640,7 +1641,7 @@
 
             <!-- Full-width Banner -->
             <section class="full-banner">
-                <img src="assets/img/umag-savadkuh-attractions.webp" alt="انبار ماشین‌آلات" />
+                <img src="{% static 'umag-savadkuh-attractions.webp' %}" alt="انبار ماشین‌آلات" />
                 <div class="overlay gradient-industrial"></div>
                 <div class="banner-content">
                     <div class="inner">
@@ -1661,7 +1662,7 @@
             <section class="img-text-section" style="background:var(--bg)">
                 <div class="container">
                     <div class="img-text-grid">
-                        <div class="img-block industrial-shadow"><img src="assets/img/prmain.jpg"
+                        <div class="img-block industrial-shadow"><img src="{% static 'prmain.jpg' %}"
                                 alt="خط تولید اتوماتیک" />
                         </div>
                         <div class="text-block">
@@ -1769,7 +1770,7 @@
             <!-- CTA -->
             <section class="cta-section" id="call">
                 <div class="cta-bg">
-                    <img src="assets/img/warehouse-machinery.jpg" alt="محیط صنعتی" />
+                    <img src="{% static 'warehouse-machinery.jpg' %}" alt="محیط صنعتی" />
                     <div class="overlay gradient-industrial"></div>
                 </div>
                 <div class="container cta-content">
@@ -1792,7 +1793,7 @@
                     <div>
                         <div class="footer-brand">
                             <div class="f-logo">
-                                <img src="assets/img/slogo.png" alt="logo" style="border-radius: 10px">
+                                <img src="{% static 'slogo.png' %}" alt="logo" style="border-radius: 10px">
                             </div>
                             <span>سینوا</span>
                         </div>
