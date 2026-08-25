@@ -354,11 +354,11 @@
 
         <div class="article-card industrial-shadow">
             {% if article.excerpt %}
-            <div class="article-excerpt-box">{{ article.excerpt }}</div>
+            <div class="article-excerpt-box">{{ article.excerpt|safe }}</div>
             {% endif %}
 
             <div class="article-content">
-                {{ article.content|linebreaks }}
+                {{ article.content|safe }}
             </div>
 
             {% if article.tags %}
