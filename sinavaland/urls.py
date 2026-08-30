@@ -1,7 +1,15 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, register_converter
+from django.urls.converters import StringConverter
 from django.conf import settings
 from django.conf.urls.static import static
+
+
+class PersianSlugConverter(StringConverter):
+    regex = r"[-\w\u0600-\u06FF]+"
+
+
+register_converter(PersianSlugConverter, 'persian_slug')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -5,5 +5,5 @@ app_name = 'marketplace'
 
 urlpatterns = [
     path('', views.product_list, name='list'),
-    path('<slug:slug>/', views.product_detail, name='detail'),
+    path('<persian_slug:slug>/', views.product_detail, name='detail'),
 ]
