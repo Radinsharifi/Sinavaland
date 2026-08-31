@@ -3,10 +3,16 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import ContactMessage
+from magazine.models import Article
+
 
 def home(request):
     """صفحه اصلی"""
-    return render(request, 'core/home.html')
+    articles = Article.objects.all()[:3]
+    return render(request, 'core/home.html', {
+        "articles": articles
+    })
+
 
 def contact(request):
     """تماس با ما"""
@@ -15,7 +21,7 @@ def contact(request):
         email = request.POST.get('email')
         phone = request.POST.get('phone')
         message = request.POST.get('message')
-        
+
         ContactMessage.objects.create(
             name=name,
             email=email,
@@ -24,7 +30,7 @@ def contact(request):
         )
         messages.success(request, 'پیام شما با موفقیت ارسال شد.')
         return redirect('contact')
-    
+
     return render(request, 'core/contact.html')
 
 
